@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/offeres_card_controllers.dart';
 
-class NotificationWidgets extends ConsumerWidget {
+class NotificationWidgets extends StatelessWidget {
   const NotificationWidgets({super.key, required this.offerscardIndex});
 
   final int offerscardIndex;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final NotificationProvide = ref.watch(OfferscardNotifyerProvider);
+  Widget build(BuildContext context) {
+    var offerCon = Provider.of<OffersControler>(context);
+    var offer = offerCon.offers[offerscardIndex];
     return Column(children: [
       Card(
         child: Column(
           children: [
             Image(
                 image:
-                    AssetImage(NotificationProvide[offerscardIndex].NotifyImg)),
+                    AssetImage(offer.NotifyImg)),
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image(
                     image: AssetImage(
-                        NotificationProvide[offerscardIndex].NotifyImg2),
+                        offer.NotifyImg2),
                     width: 65,
                   ),
                 ),
                 Column(
                   children: [
                     Text(
-                      NotificationProvide[offerscardIndex].NotifyTitleOne,
+                      offer.NotifyTitleOne,
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                          const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                     Text(
-                      NotificationProvide[offerscardIndex].NotifyTitleTwo,
+                      offer.NotifyTitleTwo,
                       style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+                          const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
                     ),
                   ],
                 )

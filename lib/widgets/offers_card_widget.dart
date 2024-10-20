@@ -1,25 +1,25 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/offeres_card_controllers.dart';
 
-class OffersCard extends ConsumerWidget {
+class OffersCard extends StatelessWidget {
   const OffersCard({super.key, required this.offerscardIndex});
 
   final int offerscardIndex;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final offerCardItems = ref.watch(OfferscardNotifyerProvider);
+  Widget build(BuildContext context) {
+    var offerCon = Provider.of<OffersControler>(context);
+    var offer = offerCon.offers[offerscardIndex];
     return Container(
       child: Card(
         color: Colors.white,
         child: Column(
           children: [
             Image(
-              image: AssetImage(offerCardItems[offerscardIndex].imgUrl),
+              image: AssetImage(offer.imgUrl),
               width: 200,
             ),
             Container(
@@ -28,17 +28,17 @@ class OffersCard extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Text(
-                    offerCardItems[offerscardIndex].titleOne,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    offer.titleOne,
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
-                  Text(offerCardItems[offerscardIndex].titleTwo),
+                  Text(offer.titleTwo),
                 ],
               ),
             )

@@ -3,7 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../data/home_page_first_part_data.dart';
 import '../pages/SendMoney_Page.dart';
+import '../pages/add_mony.dart';
+import '../pages/cash_out.dart';
 import '../pages/mobile_recharge.dart';
+import '../pages/pay_bill.dart';
+import '../pages/payment_page.dart';
 
 class PartOneHome extends StatefulWidget {
   const PartOneHome({Key? key}) : super(key: key);
@@ -76,6 +80,18 @@ class _PartOneHomeState extends State<PartOneHome> {
                         } else if (index == 1) {
                           showLoadingAnimation(
                               context, const MobileRecharge());
+                        } else if (index == 2){
+                          showLoadingAnimation(
+                              context, const CashOut());
+                        }else if (index == 3){
+                          showLoadingAnimation(
+                              context, const PaymentPage());
+                        }else if (index == 4){
+                          showLoadingAnimation(
+                              context, const AddMoney());
+                        }else if (index == 5){
+                          showLoadingAnimation(
+                              context, const PayBill());
                         }
                         // You can add similar navigation logic for other items here
                       },
