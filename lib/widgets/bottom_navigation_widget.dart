@@ -26,8 +26,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           activeIcon: Container(
             padding: EdgeInsets.all(8),
             decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            child: Icon(
+                const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+            child: const Icon(
               Icons.document_scanner_outlined,
               size: 43,
               color: Color(0xFFE11471),
@@ -53,7 +53,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               size: 33,
               color: Color(0xFFE11471),
             ),
-            inActiveIcon: Icon(
+            inActiveIcon: const Icon(
               Icons.home,
               size: 33,
               color: Colors.black26,

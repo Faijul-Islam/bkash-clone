@@ -82,7 +82,9 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(50)),
                             child:
-                                Stack(alignment: Alignment.center, children: [
+                                Stack(
+                                    alignment: Alignment.center,
+                                    children: [
                               //Amount
                               AnimatedOpacity(
                                   opacity: _isBalanceShown ? 1 : 0,
@@ -96,7 +98,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                               AnimatedOpacity(
                                   opacity: _isBalance ? 1 : 0,
                                   duration: const Duration(milliseconds: 300),
-                                  child: const Text('Tap for balance',
+                                  child: const Text(' Tap for balance',
                                       style: TextStyle(
                                           color: Color(0xFFE11471),
                                           fontSize: 14,
@@ -113,7 +115,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                       // padding: const EdgeInsets.only(bottom: 4),
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                          color: Color(0xFFE11471),
+                                          color: const Color(0xFFE11471),
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: const FittedBox(
@@ -121,7 +123,8 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 17)))))
-                            ])))
+                            ]))
+                    )
                   ],
                 ),
               ],
@@ -158,7 +161,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
       ),
       endDrawer: const DrawerWidget(),
       body: ListView(
-        children: [
+        children: const [
           PartOneHome(),
           SizedBox(
             height: 9,
